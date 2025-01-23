@@ -1,4 +1,5 @@
-from pycounts_dgarg1.gg import count_words
+# from pycounts_dgarg1.gg import count_words
+import pycounts_dgarg1 as pdgarg1
 from collections import Counter
 from pycounts_dgarg1.plotting import plot_words 
 import matplotlib    
@@ -14,7 +15,7 @@ def einstein_counts():
 def test_count_words(einstein_counts):  
     """Test word counting from a file."""
     expected = einstein_counts
-    actual = count_words("tests/einstein.txt")
+    actual = pdgarg1.count_words("tests/einstein.txt")
     assert actual == expected, "Einstein quote counted incorrectly!"
 
 def test_plot_words(einstein_counts):   
@@ -33,7 +34,7 @@ def test_plot_words_error():
 
 def test_integration():
     """Test count_words() and plot_words() workflow."""
-    counts = count_words("tests/einstein.txt")
+    counts = pdgarg1.count_words("tests/einstein.txt")
     fig = plot_words(counts)
     assert isinstance(fig, matplotlib.container.BarContainer), \
            "Wrong plot type"
